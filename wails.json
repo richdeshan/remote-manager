@@ -1,0 +1,21 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "remote-manager",
+  "outputfilename": "remote-manager",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "",
+    "email": ""
+  },
+  "windows": {
+    "webview": {
+      "devtools": true
+    }
+  },
+  "log": {
+    "level": "debug"
+  }
+}
