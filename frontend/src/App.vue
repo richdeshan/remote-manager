@@ -1,29 +1,32 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import Header from "./components/Header.vue";
+import MainContent from "./components/MainContent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld  // Daftarkan komponen HelloWorld di bagian components
-  }
-}
+    Header,
+    MainContent,
+    HelloWorld,
+  },
+};
 </script>
 
-
 <template>
-  <div id="app">
-    <HelloWorld />  <!-- Menambahkan komponen HelloWorld -->
-  </div>
+  <v-app>
+    <div class="overall-style">
+      <Header />
+    </div>
+
+    <div id="content">
+      <HelloWorld />
+    </div>
+  </v-app>
 </template>
 
-
-<style>
+<style scoped>
 /* Gaya umum untuk aplikasi */
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
+
 </style>

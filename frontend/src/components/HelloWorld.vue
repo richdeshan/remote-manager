@@ -17,7 +17,7 @@ function greet() {
 
 </script>
 
-<template>
+<!-- <template>
   <div>
     <div id="result" class="result">{{ data.resultText }}</div>
     <div id="input" class="input-box">
@@ -25,7 +25,7 @@ function greet() {
       <button class="btn" @click="greet">Greet</button>
     </div>
   </div>
-</template>
+</template> -->
 
 <style scoped>
 .result {
