@@ -1,6 +1,36 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { ArrowDown } from "@element-plus/icons-vue";
+
+interface ServerData {
+  id: number;
+  name: string;
+}
+
+interface EnvironmentItem {
+  id: number;
+  name: string;
+}
+
+const servers: ServerData[] = [
+  { id: 1, name: "api-db.m4.xlarge.us-west-1" },
+  { id: 2, name: "api-db.c5.large.us-east-1" },
+  { id: 3, name: "api-db.t3.medium.ap-southeast-1" },
+  { id: 4, name: "api-db.r5.large.eu-central-1" },
+  { id: 5, name: "api-db.c6g.large.ap-northeast-1" },
+  { id: 6, name: "api-db.m6i.large.us-east-2" },
+  { id: 7, name: "api-db.t4g.medium.sa-east-1" },
+  { id: 8, name: "api-db.r6g.large.ca-central-1" },
+  { id: 9, name: "api-db.c7g.medium.eu-west-3" },
+];
+
+const environments: EnvironmentItem[] = [
+  { id: 1, name: "AWS" },
+  { id: 2, name: "Acme" },
+  { id: 3, name: "Testing" },
+  { id: 4, name: "Staging" },
+  { id: 5, name: "Development" },
+];
 
 const handleClick = () => {
   // eslint-disable-next-line no-alert
@@ -55,29 +85,25 @@ const handleSearch = () => {
     <div>
       <div class="groups-container">
         <div>Groups</div>
-          <div class="grid">
-            <el-card class="flex-col">AWS</el-card>
-            <el-card class="flex-col">Acme</el-card>
-            <el-card class="flex-col">Testing</el-card>
-            <el-card class="flex-col">Staging</el-card>
-            <el-card class="flex-col">Development</el-card>
-          </div>
+        <div class="grid">
+          <el-card v-for="env in environments" :key="env.id" class="flex-col">
+            {{ env.name }}
+          </el-card>
+        </div>
       </div>
     </div>
     <div>
       <div class="groups-container">
         <div>Host</div>
-          <div class="grid">
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-            <el-card class="flex-col">api-db.m4.xlarge.us-west-1</el-card>
-          </div>
+        <div class="grid">
+          <el-card
+            v-for="server in servers.slice(1)"
+            :key="server.id"
+            class="flex-col"
+          >
+            {{ server.name }}
+          </el-card>
+        </div>
       </div>
     </div>
   </div>
